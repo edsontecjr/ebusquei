@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nome": "edson",
+    "email": "ed.rap@hotmail.com",
+    "senha": "$2b$10$Lc.tvRkiR5Tu3ZllXV0w5uCzyr.tNXOxVucF1nEND79cnQTOAp9bG"
+  },
+  {
+    "id": 2,
+    "nome": "edson teixeira",
+    "email": "edsontecjr@gmail.com",
+    "senha": "$2b$10$cyzp59tUMpz1MuhyPcGBmucQxzSBYDaQUkLFSUXpFV3Gdeu0ImOhm"
+  },
+  {
+    "id": 3,
+    "nome": "joao",
+    "email": "edrap@bol.com.br",
+    "senha": "$2b$10$2R7ER8HHKLqyRv1RDOed.ufJzA6DpcaTIWQHrSBPSlXLXFB4itqo2"
+  },
+  {
+    "nome": "jony",
+    "email": "jony@gmail.com",
+    "senha": "Q12345678",
+    "lembrete": "nada"
+  }
+]

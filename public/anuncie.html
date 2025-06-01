@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anuncie Aqui – e busquei</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="/img/logo.png" alt="Logo" class="logo animated-logo" />
+    <div class="buttons-text">
+      <a href="/saibamais.html" class="button-text">Saiba Mais</a>
+      <a href="/contato.html" class="button-text">Entre em Contato</a>
+      <a href="/anuncie.html" class="button-text">Anuncie Aqui</a>
+    </div>
+    <a href="/login.html" class="btn-enter-signup">ACESSAR</a>
+
+    <!-- Formulário de anunciante -->
+    <section class="form-section">
+      <h1>Seja um Anunciante</h1>
+      <form action="#" method="post" enctype="multipart/form-data" class="advertise-form">
+        <label for="company">Empresa:</label>
+        <input type="text" id="company" name="company" required />
+
+        <label for="contact">Contato (nome):</label>
+        <input type="text" id="contact" name="contact" required />
+
+        <label for="email">E‑mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Telefone:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="ad-details">Detalhes do Anúncio:</label>
+        <textarea id="ad-details" name="ad-details" rows="5" required></textarea>
+
+        <label for="banner">Banner (opcional):</label>
+        <input type="file" id="banner" name="banner" accept="image/*" />
+
+        <button type="submit" class="btn-submit">Enviar</button>
+      </form>
+
+      <!-- Botão WhatsApp -->
+      <a
+        href="https://wa.me/5511999999999"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-whatsapp"
+      >
+        <img src="/img/whatsapp-icon.png" alt="WhatsApp" />
+        Converse via WhatsApp
+      </a>
+    </section>
+  </div>
+
+  <!-- Carrossel -->
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="/slide/slide1.jpg" alt="Slide 1" />
+      <img src="/slide/bg9.jpg" alt="Slide 2" />
+      <img src="/slide/slide3.jpg" alt="Slide 3" />
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+<footer>
+  <p>© 2024 e busquei. Todos os direitos reservados. email:
+    <a href="mailto:fuilaebusquei@gmail.com">fuilaebusquei@gmail.com</a>
+  </p>
+</footer>
+</html>

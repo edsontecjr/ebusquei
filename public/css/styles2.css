@@ -1,0 +1,508 @@
+:root {
+  --logo-top: 10px;
+  --logo-left: 70px;
+  --logo-width: 150px;
+  --header-font-size: 20px;
+  --product-list-title-font-size: 20px;
+  --market-min-width: 250px; /* Largura mínima para cada mercado em desktop */
+  --market-img-size: 70px; /* Tamanho da imagem do mercado (quadrada) em desktop */
+  --logout-button-padding: 10px 20px;
+  --logout-button-border-radius: 5px;
+  --logout-button-font-size: 16px;
+  --logout-button-bottom: 20px;
+  --logout-button-right: 20px;
+
+  /* Variáveis para dispositivos móveis */
+  --logo-top-mobile: 5px;
+  --logo-left-mobile: 5px;
+  --logo-width-mobile: 80px;
+  --header-padding-mobile: 5px;
+  --header-font-size-mobile: 14px;
+  --product-list-width-mobile: 120px; /* Largura da lista de produtos em mobile */
+  --product-list-top-mobile: 70px;
+  --product-list-left-mobile: 5px;
+  --product-list-title-font-size-mobile: 14px;
+  --product-list-item-font-size-mobile: 12px;
+  --logout-button-padding-mobile: 8px 15px;
+  --logout-button-font-size-mobile: 14px;
+  --logout-button-bottom-mobile: 15px;
+  --logout-button-right-mobile: 15px;
+
+  /* Variáveis para controle de largura mínima dos mercados em mobile */
+  --market-min-width-mobile: 100px;
+}
+
+/* Configurações Gerais */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url('/img/unnamed.png');
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* Logo Responsivo */
+.logo-container {
+  position: fixed;
+  top: var(--logo-top);
+  left: var(--logo-left);
+  z-index: 1000;
+  width: var(--logo-width);
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 90%;
+  z-index: 50;
+}
+
+.header h1 {
+  font-size: var(--header-font-size);
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Container Principal do Conteúdo */
+.main-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  flex: 1;
+  /* Por padrão em desktop, lista e mercados lado a lado */
+  flex-direction: row;
+  align-items: flex-start; /* Alinha ao topo */
+}
+
+/* Lista de Produtos */
+.market-list {
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 150px);
+  position: sticky;
+  top: 90px;
+  left: 20px;
+  z-index: 10;
+  overflow-y: auto;
+  margin-right: 20px;
+}
+
+.market-list h2 {
+  font-size: var(--product-list-title-font-size);
+  font-weight: bold;
+  color: #007bff;
+  text-align: left;
+  margin-top: 0;
+}
+
+.market-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.market-list li {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-bottom: 8px;
+  font-size: 0.95em;
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+.market-list li:hover,
+.market-list li:focus {
+  color: #007bff;
+  outline: none;
+}
+
+/* Wrapper para os containers de mercado */
+.market-container-wrapper {
+  display: flex; /* Mantém flex para organizar os mercados */
+  flex-wrap: nowrap; /* Impede que os mercados quebrem a linha */
+  gap: 10px; /* Reduz o espaçamento entre os mercados */
+  flex: 1;
+  justify-content: center; /* Centraliza os mercados */
+  align-items: flex-start; /* Alinha os mercados ao topo */
+}
+
+/* Mercados Individuais */
+.market {
+  flex: 1; /* Permite que os mercados cresçam e diminuam para caber */
+  min-width: var(--market-min-width); /* Define uma largura mínima para cada mercado */
+  padding: 10px; /* Reduz o padding para economizar espaço */
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.market:hover {
+  transform: translateY(-5px);
+}
+
+.market img {
+  width: var(--market-img-size);
+  height: var(--market-img-size); /* Torna a imagem quadrada */
+  object-fit: contain; /* Garante que a imagem se ajuste sem cortar */
+  margin-bottom: 5px; /* Reduz o espaçamento abaixo da imagem */
+  border-radius: 10px;
+}
+
+.market .added-products {
+  color: black;
+  margin-top: 5px; /* Reduz o espaçamento */
+  text-align: left;
+  width: 100%;
+  padding-left: 5px;
+  min-height: 80px; /* Altura mínima ajustada */
+  max-height: 200px; /* Altura máxima ajustada para caber */
+  overflow-y: auto;
+  font-size: 0.85em; /* Reduz o tamanho da fonte dos produtos adicionados */
+}
+
+.product-added {
+  margin-bottom: 2px; /* Reduz o espaçamento entre os produtos */
+  font-size: inherit; /* Mantém o tamanho da fonte do pai */
+}
+
+.product-added.price-unavailable {
+  color: #dc3545;
+  font-style: italic;
+}
+
+.market .total-value {
+  font-size: 1.1em;
+  margin-top: 10px; /* Reduz o espaçamento */
+  font-weight: bold;
+}
+
+/* Estilo para o menor valor */
+.market .total-value.lowest-price {
+  color: #28a745; /* Cor verde para o menor preço */
+  font-size: 1.3em; /* Destaca com tamanho maior */
+  font-weight: bolder; /* Destaca com negrito mais forte */
+  animation: pulseGreen 1s infinite alternate; /* Animação de destaque */
+}
+
+@keyframes pulseGreen {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* Botão de Logout */
+.logout-button {
+  padding: var(--logout-button-padding);
+  background-color: #dc3545;
+  border: none;
+  border-radius: var(--logout-button-border-radius);
+  font-size: var(--logout-button-font-size);
+  color: #ffffff;
+  cursor: pointer;
+  position: fixed;
+  bottom: var(--logout-button-bottom);
+  right: var(--logout-button-right);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto;
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  /* Ajustes na Logo */
+  .logo-container {
+    top: var(--logo-top-mobile);
+    left: var(--logo-left-mobile);
+    width: var(--logo-width-mobile);
+  }
+
+  .logo {
+    max-width: 100%;
+  }
+
+  /* Ajustes no Header */
+  .header {
+    padding: var(--header-padding-mobile);
+    margin-top: 10px;
+    width: calc(100% - 20px);
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .header h1 {
+    font-size: var(--header-font-size-mobile);
+  }
+
+  /* Ajustes no Container Principal */
+  .main-content {
+    /* Por padrão em mobile, a lista e os mercados se empilham */
+    flex-direction: column;
+    padding: 5px; /* Reduz padding geral */
+    align-items: center; /* Centraliza os itens empilhados */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha se necessário */
+    justify-content: flex-start; /* Alinha ao topo */
+  }
+
+  /* Ajustes na Lista de Produtos (quando ela está visível) */
+  .market-list {
+    /* Remove o sticky e posicionamento fixo para mobile */
+    position: static;
+    width: 90%; /* Ocupa a largura quase total */
+    margin: 10px auto; /* Centraliza e adiciona margem */
+    max-height: 250px; /* Limita a altura para não ocupar muito espaço */
+    padding: 10px; /* Reduz padding */
+    margin-right: auto; /* Remove margin-right fixo */
+  }
+
+  .market-list h2 {
+    font-size: var(--product-list-title-font-size-mobile);
+    text-align: center;
+  }
+
+  .market-list ul {
+    padding-left: 5px;
+  }
+
+  .market-list li {
+    font-size: var(--product-list-item-font-size-mobile);
+    margin-bottom: 4px;
+  }
+
+  /* Ajustes nos Mercados Wrapper (quando a lista está visível) */
+  .market-container-wrapper {
+    flex-direction: row; /* Mantém os markets LADO A LADO AQUI DENTRO */
+    flex-wrap: nowrap; /* Impede a quebra de linha para ativar o overflow-x */
+    gap: 5px; /* Reduz o espaçamento entre os mercados */
+    width: 90%; /* Ocupa a largura */
+    overflow-x: auto; /* Adiciona scroll horizontal se não couberem */
+    -webkit-overflow-scrolling: touch; /* Opcional: para inércia em iOS, mas pode gerar avisos */
+    padding-bottom: 5px; /* Espaço para a barra de rolagem */
+    margin: 10px auto; /* Centraliza */
+    align-items: flex-start; /* Alinha ao topo */
+  }
+
+  .market {
+    flex-shrink: 0; /* Impede que os mercados encolham demais (se houver overflow-x) */
+    width: auto; /* Deixa a largura ser determinada pelo min-width */
+    min-width: var(--market-min-width-mobile); /* Garante uma largura mínima */
+    max-width: 150px; /* Largura máxima para cada mercado quando a lista está visível */
+    padding: 8px; /* Reduz o padding */
+    margin: 0;
+  }
+
+  .market img {
+    width: 80%; /* Ajusta o tamanho da logo */
+    max-width: 50px; /* Tamanho máximo para a logo */
+    height: auto;
+    margin-bottom: 2px;
+  }
+
+  .market .added-products {
+    font-size: 0.7em;
+    min-height: 50px;
+    max-height: 100px;
+    overflow-y: auto;
+    padding-left: 2px;
+  }
+
+  .product-added {
+    margin-bottom: 1px;
+  }
+
+  .market .total-value {
+    font-size: 0.8em;
+    margin-top: 5px;
+  }
+
+  /* Ajustes no Botão de Logout */
+  .logout-button {
+    padding: var(--logout-button-padding-mobile);
+    font-size: var(--logout-button-font-size-mobile);
+    bottom: var(--logout-button-bottom-mobile);
+    right: var(--logout-button-right-mobile);
+  }
+
+  /* Ajustes no Footer */
+  footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  /* --- Estilos para QUANDO A LISTA ZERAR APENAS NESTA MEDIA QUERY (768px) --- */
+  .main-content.no-products-left .market-list {
+    display: none; /* Oculta a lista de produtos */
+  }
+
+  .main-content.no-products-left .market-container-wrapper {
+    margin-top: 20px; /* Empurra os mercados para baixo */
+    width: 95%; /* Ocupa quase toda a largura disponível */
+    max-width: none; /* Remove qualquer restrição de largura máxima */
+    flex-direction: column; /* FORÇA os mercados a se EMPILHAREM */
+    gap: 15px; /* Espaçamento entre os mercados empilhados */
+    overflow-x: hidden; /* Remove rolagem horizontal quando empilhados */
+  }
+
+  .main-content.no-products-left .market {
+    flex: 1; /* Permite que cada mercado ocupe a largura total */
+    min-width: unset; /* Remove min-width para permitir que ele ocupe 100% da largura do wrapper */
+    max-width: 100%; /* Garante que ocupe toda a largura disponível */
+    padding: 15px; /* Mais padding para parecer maior */
+  }
+
+  .main-content.no-products-left .market img {
+    width: 60%; /* Ajusta o tamanho da logo */
+    max-width: 100px; /* Tamanho máximo para a logo */
+    height: auto;
+  }
+
+  .main-content.no-products-left .market .added-products {
+    font-size: 0.95em; /* Fonte maior */
+    min-height: 100px;
+    max-height: 250px; /* Mais espaço para os produtos */
+  }
+
+  .main-content.no-products-left .market .total-value {
+    font-size: 1.3em; /* Fonte do total maior */
+  }
+}
+
+/* Mídias para telas muito pequenas (smartphones menores) */
+@media (max-width: 480px) {
+  .logo-container {
+    width: 50px;
+  }
+
+  .header h1 {
+    font-size: 10px;
+  }
+
+  /* Ajustes na Lista de Produtos (quando ela está visível) */
+  .market-list {
+    width: 95%; /* Ocupa quase toda a largura */
+    max-height: 200px;
+    padding: 5px;
+  }
+
+  .market-list h2 {
+    font-size: 10px;
+  }
+
+  .market-list li {
+    font-size: 9px;
+  }
+
+  /* Ajustes nos Mercados Wrapper (quando a lista está visível) */
+  .market-container-wrapper {
+    width: 95%; /* Ocupa quase toda a largura */
+    gap: 5px;
+  }
+
+  .market {
+    min-width: 90px; /* Ajuste para caber 3 lado a lado com rolagem */
+    max-width: 100px; /* Impede que cresçam demais */
+    padding: 5px;
+  }
+
+  .market img {
+    width: 70%;
+    max-width: 40px;
+  }
+
+  .product-added {
+    font-size: 0.65em;
+    margin-bottom: 0px;
+  }
+
+  .market .total-value {
+    font-size: 0.7em;
+  }
+
+  .logout-button {
+    font-size: 10px;
+    padding: 4px 8px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  footer {
+    font-size: 9px;
+    padding: 5px;
+  }
+
+  /* --- Estilos para QUANDO A LISTA ZERAR NESTA MEDIA QUERY (480px) --- */
+  .main-content.no-products-left .market-container-wrapper {
+    margin-top: 10px; /* Ajuste menor para mobile pequeno */
+    width: 98%;
+    gap: 10px;
+  }
+
+  .main-content.no-products-left .market {
+    min-width: unset; /* Remove min-width */
+    max-width: 100%; /* Garante largura total */
+    padding: 10px;
+  }
+
+  .main-content.no-products-left .market img {
+    width: 50%;
+    max-width: 80px;
+  }
+
+  .main-content.no-products-left .market .added-products {
+    font-size: 0.85em;
+    min-height: 100px;
+    max-height: 250px;
+  }
+
+  .main-content.no-products-left .market .total-value {
+    font-size: 1.1em;
+  }
+}
