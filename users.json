@@ -22,5 +22,11 @@
     "email": "jony@gmail.com",
     "senha": "Q12345678",
     "lembrete": "nada"
+  },
+  {
+    "nome": "ed",
+    "email": "ed@ed.com.br",
+    "senha": "$2b$10$JWxKXevH/.QMwFvEH7IY4eWCEKmLWwyWVVdmmB7xXj0uEgFXSWDUe",
+    "lembrete": "nada"
   }
 ]
